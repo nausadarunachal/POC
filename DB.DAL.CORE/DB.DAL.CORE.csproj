@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DB.Models.Core\DB.Models.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DGDean.EfUtils">
+      <HintPath>bin\Debug\DGDean.EfUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DGDean.Models">
+      <HintPath>bin\Debug\DGDean.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="DGDean.Utils">
+      <HintPath>bin\Debug\DGDean.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="InteractivePreGeneratedViews">
+      <HintPath>bin\Debug\InteractivePreGeneratedViews.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

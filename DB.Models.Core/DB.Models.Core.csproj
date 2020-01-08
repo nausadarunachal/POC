@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CodeTemplates\TextTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TextTemplate.txt</LastGenOutput>
+    </None>
+    <None Update="CodeTemplates\TextTemplate.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TextTemplate.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DGDean.EfUtils">
+      <HintPath>bin\Debug\DGDean.EfUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DGDean.Models">
+      <HintPath>bin\Debug\DGDean.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="DGDean.Utils">
+      <HintPath>bin\Debug\DGDean.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\DB.DAL.CORE\DB.DAL.CORE.csproj" />
+    <ProjectReference Include="..\DB.Models.Core\DB.Models.Core.csproj" />
+    <ProjectReference Include="..\Interface.BAL\Interface.BAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DGDean.EfUtils">
+      <HintPath>bin\Debug\DGDean.EfUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DGDean.Models">
+      <HintPath>bin\Debug\DGDean.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="DGDean.Utils">
+      <HintPath>bin\Debug\DGDean.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="InteractivePreGeneratedViews">
+      <HintPath>bin\Debug\InteractivePreGeneratedViews.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
