@@ -2,18 +2,16 @@
 using System.Net;
 using Common.Core;
 using Microsoft.AspNetCore.Mvc;
-using DB.DAL.CORE;
-using DB.Models.Core.DB;
 using Contracts.Customer;
 using Newtonsoft.Json;
-using BAL;
 using Interface.BAL;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class HomeController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

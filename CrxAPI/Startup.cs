@@ -11,6 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
+using WebAPI.JWT;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace WebAPI
 {
@@ -20,49 +24,53 @@ namespace WebAPI
         {
             //Nlog config
             LogManager.LoadConfiguration(System.String.Concat(Directory.GetCurrentDirectory(), "/Logging/nlog.config"));
-            Configuration = configuration;
 
+            Configuration = configuration;
         }
         public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //JWT Token Initialization
+            services.AddJWT();
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                                                                   .AllowAnyMethod()
+                                                                    .AllowAnyHeader()));
             //Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwagger();
             services.AddControllers();
+            //Dependency Injection Initialization
             IoC.Resolver(services);
             services.AddMvc(opt =>
             {
+                //Fluent Validator Initialization
                 opt.Filters.Add(typeof(ValidatorActionFilter));
             }).AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
 
+            
 
-
-            //// Start Registering and Initializing AutoMapper
+            //Start Registering and Initializing AutoMapper
             services.AddAutoMapper(new Type[]
             {
                 typeof(BAL.AutoMapper.MappingProfile)
-            }
-                                  );
-
-            //services.AddSingleton<INLogging, NLogging>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("AllowAll");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseRouting();
-            app.UseAuthorization();
-            
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            //Swashbuckle.AspNetCore.Filters to v 5.0.0-rc2
-            app.UseSwagger();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            // Swashbuckle.AspNetCore.Filters to v 5.0.0-rc2
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseCustomSwagger();

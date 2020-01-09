@@ -7,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace WebAPI
 {
-    public   class TestClass
+    public class TestClass
     {
-        //private static INLogging _logger;
-        //public TestClass(INLogging logger)
-        //{
-        //     _logger = logger;
-        //}
+
         private static INLogging _logger;
-       // private static IKernel _diContainer;
-          static   TestClass( )
+        static TestClass()
         {
 
             _logger = new NLogging();
@@ -34,7 +29,7 @@ namespace WebAPI
                 return null;
             }
         }
-           
-        }
-    
+
+    }
+
 }
