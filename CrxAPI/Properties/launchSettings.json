@@ -28,11 +28,7 @@
     }
 
   }
-  ,
-
-  "ConnectionStrings": {
-    "MSSQLConnectionString": "server=148.72.232.167,1433;Database=jikoome_db;User Id=samkush3010;Password=saddam786"
-  //  "WriteContext": "Data Source=148.72.232.167,1433;Database=jikoome_db;User Id=samkush3010;Password=saddam786"
-   }
+   
+   
 }
   
