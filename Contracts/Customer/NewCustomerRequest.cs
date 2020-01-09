@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Contracts.Customer
+﻿namespace Contracts.Customer
 {
     public class NewCustomerRequest
     {

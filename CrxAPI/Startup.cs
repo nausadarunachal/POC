@@ -1,24 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using CrxAPI.DependencyInjection;
 using CrxAPI.FluentValidator;
-using CrxAPI.Logging;
 using CrxAPI.Swagger;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using NLog;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace CrxAPI
 {
@@ -29,6 +21,7 @@ namespace CrxAPI
             //Nlog config
             LogManager.LoadConfiguration(System.String.Concat(Directory.GetCurrentDirectory(), "/Logging/nlog.config"));
             Configuration = configuration;
+
         }
         public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -38,11 +31,20 @@ namespace CrxAPI
             services.AddSwagger();
             services.AddControllers();
             IoC.Resolver(services);
-
             services.AddMvc(opt =>
             {
                 opt.Filters.Add(typeof(ValidatorActionFilter));
             }).AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+
+
+            //// Start Registering and Initializing AutoMapper
+            services.AddAutoMapper(new Type[]
+            {
+                typeof(BAL.AutoMapper.MappingProfile)
+            }
+                                  );
+
             //services.AddSingleton<INLogging, NLogging>();
         }
 
@@ -63,7 +65,7 @@ namespace CrxAPI
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            app.UseCustomSwagger(); 
+            app.UseCustomSwagger();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -1,33 +1,25 @@
-﻿using Contracts.Customer;
+﻿using AutoMapper;
+using Contracts.Customer;
 using DB.DAL.CORE;
 using DB.Models.Core.DB;
- 
+
 using Interface.BAL;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BAL
 {
     public class HomeBAL: IHomeBAL
     {
-        public NewCustomerResponse Add(NewCustomerRequest request)
+        private readonly IMapper _mapper;
+        public HomeBAL(IMapper mapper)
         {
-            //request.TrimAllStrings();
-            TestTblCustomerModel requst = new TestTblCustomerModel
-            {
-                CustomerName = request.CustomerName,
-                EmailAddress = request.EmailAddress,
-            };
-            var contactResponse = CRUDGeneric.Add(requst);
-            NewCustomerResponse returnobj = new NewCustomerResponse
-            {
-                CustomerName = "aa",
-                EmailAddress = "as",
-                TestTblCustomerId = 1,
-            };
-            return returnobj;
+            _mapper = mapper;
+        }
+        
+        public NewCustomerResponse Add(NewCustomerRequest newCustomerRequest)
+        {
+            var request = _mapper.Map<TestTblCustomerModel>(newCustomerRequest);
+            var response = CRUDGeneric.Add(request);            
+            return _mapper.Map<NewCustomerResponse>(response); ;
         }
     }
 }

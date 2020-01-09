@@ -68,21 +68,11 @@ namespace CrxAPI.Controllers
         [HttpPost]
         public  IActionResult  Get(NewCustomerRequest newCustomer)
         {
-            //var config = (new ConfigurationBuilder()
-            //     .SetBasePath(Directory.GetCurrentDirectory())
-            //     .AddJsonFile("appsettings.json").Build())["ConnectionStrings:MSSQLConnectionString"];
-            // var s = System.Configuration.ConfigurationManager.AppSettings["MSSQLConnectionString"];
             //if (newCustomer is null)
             //{
             //    throw new ArgumentNullException(nameof(newCustomer));
             //}
-            //var result = TestClass.Get(1);
-            //TestTblCustomerModel requst = new TestTblCustomerModel
-            //{
-            //    CustomerName = newCustomer.CustomerName,
-            //    EmailAddress = newCustomer.EmailAddress,
-            //};
-            //var result = CRUDGeneric.Add(requst);
+            
             _logger.Information("Request: "+ JsonConvert.SerializeObject(newCustomer));
             
             var result =   _ihomebal.Add(newCustomer);           
