@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB.CodeTemplate", "DB.CodeTemplate\DB.CodeTemplate.csproj", "{A48E03E8-2407-4C46-A1BD-37F29AA5DBB9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrxAPI", "CrxAPI\CrxAPI.csproj", "{F768D8CB-63E4-43AD-AE88-DC05D2E87CF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "CrxAPI\WebAPI.csproj", "{F768D8CB-63E4-43AD-AE88-DC05D2E87CF6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Core", "Common.Core\Common.Core.csproj", "{0C31C7F2-F2A5-499E-A7BD-C23C44C6AA96}"
 EndProject

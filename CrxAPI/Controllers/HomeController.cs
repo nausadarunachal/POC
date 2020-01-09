@@ -10,7 +10,7 @@ using BAL;
 using Interface.BAL;
 using System.Threading.Tasks;
 
-namespace CrxAPI.Controllers
+namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

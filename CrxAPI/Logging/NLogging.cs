@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CrxAPI.Logging
+namespace WebAPI.Logging
 {
     //https://www.c-sharpcorner.com/article/net-core-web-api-logging-using-nlog-in-text-file/
     //https://www.c-sharpcorner.com/article/how-to-implement-nlog-in-webapi/

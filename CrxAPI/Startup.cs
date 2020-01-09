@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 using AutoMapper;
-using CrxAPI.DependencyInjection;
-using CrxAPI.FluentValidator;
-using CrxAPI.Swagger;
+using WebAPI.DependencyInjection;
+using WebAPI.FluentValidator;
+using WebAPI.Swagger;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
 
-namespace CrxAPI
+namespace WebAPI
 {
     public class Startup
     {

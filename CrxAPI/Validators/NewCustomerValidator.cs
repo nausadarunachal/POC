@@ -1,6 +1,6 @@
 ﻿using Contracts.Customer;
 using FluentValidation;
-namespace CrxAPI.Validators
+namespace WebAPI.Validators
 {
     public class NewCustomerValidator:AbstractValidator<NewCustomerRequest>
     {

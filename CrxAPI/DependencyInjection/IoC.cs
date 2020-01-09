@@ -1,5 +1,5 @@
 ﻿using BAL;
-using CrxAPI.Logging;
+using WebAPI.Logging;
 using Interface.BAL;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CrxAPI.DependencyInjection
+namespace WebAPI.DependencyInjection
 {
     public static class IoC 
     {

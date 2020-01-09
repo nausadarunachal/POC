@@ -1,11 +1,11 @@
-﻿using CrxAPI.Logging;
+﻿using WebAPI.Logging;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CrxAPI
+namespace WebAPI
 {
     public   class TestClass
     {

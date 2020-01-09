@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace CrxAPI.FluentValidator
+namespace WebAPI.FluentValidator
 {
     public class ValidatorActionFilter : IActionFilter
     {

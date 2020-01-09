@@ -1,6 +1,6 @@
 using System;
 
-namespace CrxAPI
+namespace WebAPI
 {
     public class WeatherForecast
     {

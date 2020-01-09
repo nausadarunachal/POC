@@ -13,8 +13,7 @@ namespace BAL
         public HomeBAL(IMapper mapper)
         {
             _mapper = mapper;
-        }
-        
+        }        
         public NewCustomerResponse Add(NewCustomerRequest newCustomerRequest)
         {
             var request = _mapper.Map<TestTblCustomerModel>(newCustomerRequest);
