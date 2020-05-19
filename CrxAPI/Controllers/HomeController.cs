@@ -6,6 +6,7 @@ using Contracts.Customer;
 using Newtonsoft.Json;
 using Interface.BAL;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace WebAPI.Controllers
 {
@@ -27,7 +28,12 @@ namespace WebAPI.Controllers
             this._ihomebal = ihomebal;
         }
 
-
+        // GET api/values
+        [AllowAnonymous]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
         //[HttpGet]
         //public IEnumerable<WeatherForecast> Get()
         //{
